@@ -122,7 +122,7 @@ export function Hero() {
               type="button"
               onClick={() => setI(k)}
               aria-label={`Show ${s.resort}`}
-              className="group flex items-center gap-3"
+              className="group flex items-center gap-3 py-2.5"
             >
               <span className={`text-[12px] tracking-[0.18em] transition-colors ${k === i ? 'text-ivory' : 'text-ivory/40 group-hover:text-ivory/70'}`}>
                 0{k + 1}
