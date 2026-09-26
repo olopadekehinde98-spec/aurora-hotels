@@ -4,6 +4,8 @@ Luxury hotel and resort showcase — rotating destination hero, rooms, experienc
 
 **Live:** https://aurora-hotels-nine.vercel.app
 
+![Aurora Hotels & Resorts](docs/hero.jpg)
+
 ```bash
 npm install
 npm run dev      # http://localhost:5173
@@ -26,3 +28,9 @@ npm run build    # production build in dist/
 Motion respects `prefers-reduced-motion` through `MotionConfig reducedMotion="user"`. Any grid cell wrapping a horizontal rail needs `min-w-0`, or the rail sets the column width and the page overflows sideways on a phone.
 
 Images are served from the Unsplash CDN with a blurred low-quality placeholder behind each one; swap the photo ids in `content.ts` for the client's own photography before launch.
+
+## Screens
+
+| Destinations | On a phone |
+| --- | --- |
+| ![Destinations](docs/desktop.jpg) | ![Aurora Hotels & Resorts on a phone](docs/mobile.jpg) |
