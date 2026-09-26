@@ -127,7 +127,7 @@ export function Hero() {
               <span className={`text-[12px] tracking-[0.18em] transition-colors ${k === i ? 'text-ivory' : 'text-ivory/40 group-hover:text-ivory/70'}`}>
                 0{k + 1}
               </span>
-              <span className="relative block h-px w-10 bg-ivory/25 sm:w-14">
+              <span className="relative block h-px w-6 bg-ivory/25 sm:w-14">
                 {k === i && (
                   <motion.span
                     key={`bar-${i}`}
@@ -149,12 +149,12 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.5, ease: EASE }}
-            className="flex items-center gap-3 text-right"
+            className="flex items-center gap-3 text-right whitespace-nowrap"
           >
             <MapPin className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.6} />
             <span>
               <span className="block text-[13px] text-ivory">{slide.place}</span>
-              <span className="block text-[10.5px] tracking-[0.22em] text-mist uppercase">{slide.resort}</span>
+              <span className="hidden text-[10.5px] sm:block tracking-[0.22em] text-mist uppercase">{slide.resort}</span>
             </span>
           </motion.div>
         </AnimatePresence>
