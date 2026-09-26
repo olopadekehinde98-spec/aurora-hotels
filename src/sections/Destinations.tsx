@@ -34,7 +34,7 @@ export function Destinations() {
             <button
               type="button"
               onClick={() => open({ kind: 'booking' })}
-              className="group mt-5 inline-flex items-center gap-2.5 text-[12px] tracking-[0.14em] text-gold uppercase"
+              className="group mt-3.5 inline-flex items-center gap-2.5 py-2.5 text-[12px] tracking-[0.14em] text-gold uppercase"
             >
               View All Destinations
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.6} />
