@@ -1,32 +1,28 @@
-# React + TypeScript + Vite
+# Aurora Hotels & Resorts
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Luxury hotel and resort showcase — rotating destination hero, rooms, experiences and seasonal offers. React 19 + TypeScript + Vite, Tailwind CSS v4, Framer Motion, Lucide icons.
 
-Currently, two official plugins are available:
+**Live:** https://aurora-hotels-nine.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # production build in dist/
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Structure
+
+- `src/sections/` in scroll order: `Hero` (three rotating property slides with a chapter index, slide counter and location badge) → `Rooms` → `Destinations` (horizontal rail of properties) → `Experiences` → `Offers`.
+- `src/components/` — `Navbar`, `Img` (CDN image with a blurred placeholder), `SplitLines`, `Reveal`, `Overlays` (the booking and search dialogs), `Footer`.
+- `src/data/content.ts` — properties, rooms, destinations, experiences, offers and all copy. Edit content here, not in sections.
+- `src/hooks/` — `useSectionProgress`, `useCountUp`, `useMediaQuery`.
+- `src/lib/` — `image.ts` (Unsplash CDN URLs + `srcset`), `ui.ts` (easing, scroll helpers, dialog state).
+- Design tokens live in the `@theme` block of `src/index.css` — Tailwind v4, so there is no `tailwind.config.js`.
+
+## Notes
+
+`useSectionProgress` wraps `useScroll` in an identity `useTransform`, which keeps Framer from handing scroll-linked values to the browser's native ScrollTimeline where multi-stop ranges desync.
+
+Motion respects `prefers-reduced-motion` through `MotionConfig reducedMotion="user"`. Any grid cell wrapping a horizontal rail needs `min-w-0`, or the rail sets the column width and the page overflows sideways on a phone.
+
+Images are served from the Unsplash CDN with a blurred low-quality placeholder behind each one; swap the photo ids in `content.ts` for the client's own photography before launch.
